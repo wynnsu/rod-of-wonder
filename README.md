@@ -2,7 +2,7 @@ Rod of Wonder
 ======
 
 Greetings, pathfinder. Here's a free Wayfinder for your battle!
-![screenshot](https://github.com/wynnsu/rod-of-wonder/images/screenshot.png "Screenshot")
+![screenshot](https://github.com/wynnsu/rod-of-wonder/blob/master/images/screenshot.png "Screenshot")
 
 Intro
 ------
