@@ -88,7 +88,7 @@ class ItemTable extends Component {
                             ...borderStyle
                         }}>
                             <p>
-                                <strong>AURA</strong>
+                                <strong>AURA </strong>
                                 <span>
                                     moderate enchantment</span>
                             </p>
