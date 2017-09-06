@@ -13,8 +13,10 @@ Roadmap
 ------
 
 - [x] ~~react-uwp~~
-- [x] react-bootstrap
+- [x] ~~react-bootstrap~~
 - [x] ~~react-material-ui~~
 - [x] styled-components
-- [ ] Heroku
+- [x] css grid layout
+- [x] ~~Heroku~~
+- [x] Github pages
 - [ ] character sheet

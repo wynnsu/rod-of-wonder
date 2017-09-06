@@ -1,125 +1,102 @@
 import React, {Component} from 'react';
-import Grid from 'react-bootstrap/lib/Grid';
-import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
+import styled from 'styled-components';
 import EffectTable from './EffectTable';
+import Color from 'color';
 
-const colorDark = 'rgba(191,106,33,1)';
-const colorLight = 'rgba(236,229,179,1)';
+const data = require('../utils/effect-tables/rod-of-wondrous.json');
+//#BF6A21
+const colorDark = Color('#BF6A21').string();
+//#ECE5B3
+const colorLight = Color('#ECE5B3').string();
 
+const ItemWrapper = styled.div `
+    display: grid;
+    grid-template-rows: 1fr 1.5fr 2fr;
+    grid-template-columns:3fr 1fr 1.5fr;
+    grid-row-gap:2px;
+    grid-column-gap:2px;
+    background-color:${colorDark};
+    border: 2px solid ${colorDark};
+    margin-bottom:2px;
+    `;
+const ItemBox = styled.div `
+    background-color:${colorLight};
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    color: ${colorDark};
+    font-size:medium;
+    padding-left:5%;
+    @media (max-width: 768px){
+        font-size:small;
+    }
+    `;
+const PriceWrapper = styled.div `
+    display:subgrid;
+    grid-template-rows:1fr 1.5fr;
+    background-color:white;
+    grid-row:1/span 2;
+    font-size:large;
+    @media (max-width: 768px){
+        font-size:medium;
+    }
+`;
+const PriceBox = ItemBox.extend `
+    background-color:white;
+    justify-content: center;
+    align-content: center;
+    font-weight: bold;
+    font-size:large;
+    @media (max-width: 768px){
+        font-size:medium;
+    }
+`;
+const PriceTitle = PriceBox.extend `
+    font-size:medium;
+    @media (max-width: 768px){
+        font-size:small;
+    }
+`;
+const TitleBox = ItemBox.extend `
+    text-transform:uppercase;
+    grid-column: 1/span 2;
+    grid-row:1/span 2;
+    justify-content:start;
+    color:${colorLight};
+    font-size: xx-large;
+    background-color:${colorDark};
+    font-weight:bold;
+    @media (max-width: 768px){
+        font-size:x-large;
+    }
+`;
+const Description = styled.p `
+    text-align:justify;
+`;
 class ItemTable extends Component {
     render() {
-        var data = require('../utils/effect-tables/rod-of-wondrous.json');
-
-        const textSize = {
-            fontSize: '2.5em'
-        }
-        const mainStyle = {
-            fontFamily: 'Roboto Condensed, sans-serif'
-        }
-        const borderStyle = {
-            ...mainStyle,
-            borderStyle: 'solid',
-            borderWidth: '2px',
-            borderColor: colorDark
-        };
-        const titleStyle = {
-            ...mainStyle,
-            backgroundColor: colorDark,
-            color: colorLight,
-            fontSize: '3.5em',
-            padding: '10px 0 10px 15px'
-        };
-        const priceStyle = {
-            ...mainStyle,
-            backgroundColor: 'white',
-            color: colorDark,
-            textAlign: 'center',
-            padding: '5px'
-        };
-        const descriptionStyle = {
-            ...mainStyle,
-            ...textSize,
-            backgroundColor: colorLight,
-            color: colorDark,
-            textAlign: 'center',
-            padding: '10px 5px 5px 5px'
-        };
         return (
             <div>
-                <Grid>
-                    <Row>
-                        <Col
-                            xs={12}
-                            md={8}
-                            style={{
-                            ...titleStyle,
-                            ...borderStyle
-                        }}>
-                            <b>ROD OF WONDER</b>
-                        </Col>
-                        <Col
-                            xs={12}
-                            md={4}
-                            style={{
-                            ...priceStyle,
-                            ...borderStyle
-                        }}>
-                            <Row
-                                style={{
-                                fontSize: '1.5em'
-                            }}>
-                                <strong>PRICE</strong>
-                            </Row>
-                            <Row
-                                style={{
-                                fontSize: '2.5em'
-                            }}>
-                                <strong>12,000 GP</strong>
-                            </Row>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col
-                            xs={12}
-                            md={6}
-                            style={{
-                            ...descriptionStyle,
-                            ...borderStyle
-                        }}>
-                            <p>
-                                <strong>AURA </strong>
-                                <span>
-                                    moderate enchantment</span>
-                            </p>
-                        </Col>
-                        <Col
-                            xs={6}
-                            md={2}
-                            style={{
-                            ...descriptionStyle,
-                            ...borderStyle
-                        }}>
-                            <p>
-                                <strong>CL</strong>
-                                10th</p>
-                        </Col>
-                        <Col
-                            xs={6}
-                            md={4}
-                            style={{
-                            ...descriptionStyle,
-                            ...borderStyle
-                        }}>
-                            <p>
-                                <strong>WEIGHT</strong>
-                                5 lbs.</p>
-                        </Col>
-                    </Row>
-                </Grid>
-                <h3>A rod of wonder is a strange and unpredictable device that randomly
-                    generates any number of weird effects each time it is used. Activating the rod
-                    is a standard action. Typical powers of the rod include the following.</h3>
+                <ItemWrapper>
+                    <TitleBox>{this.props.title}</TitleBox>
+                    <PriceWrapper>
+                        <PriceTitle>PRICE</PriceTitle>
+                        <PriceBox>
+                            {this.props.price}&nbsp;GP
+                        </PriceBox>
+                    </PriceWrapper>
+                    <ItemBox>
+                        <b>AURA&nbsp;</b>{this.props.aura}</ItemBox>
+                    <ItemBox>
+                        <b>CL&nbsp;</b>{this.props.cl}</ItemBox>
+                    <ItemBox>
+                        <b>WEIGHT&nbsp;</b>{this.props.weight}</ItemBox>
+                </ItemWrapper>
+                <Description>
+                    A rod of wonder is a strange and unpredictable device that randomly generates
+                    any number of weird effects each time it is used.Activating the rod is a
+                    standard action.Typical powers of the rod include the following.
+                </Description>
                 <EffectTable rows={data} borderColor={colorDark}/>
             </div>
         );

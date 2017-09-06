@@ -1,9 +1,14 @@
 html {
-  overflow-y: scroll;  
+  overflow-y: scroll;
 }
 
 body {
-  background-image: url('./images/background.jpg');
-  background-size: cover;
+  /* background-size: cover; */
+  background: url(./images/background.jpg) fixed;
+  -webkit-background-size: 100% auto;
+  -moz-background-size: 100% auto;
+  -ms-background-size: 100% auto;
+  -o-background-size: 100% auto;
+  background-size: 100% auto;
   font-family: 'Roboto Condensed', sans-serif;
 }

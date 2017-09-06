@@ -1,54 +1,72 @@
 import React, {Component} from 'react';
-import Table from 'react-bootstrap/lib/Table';
+import styled from 'styled-components';
+import Color from 'color';
+
+//#BF6A21
+const colorDark = Color('#BF6A21');
+
+const Table = styled.table `
+  border-collapse: collapse;
+  table-layout:auto;
+  width:100%;
+`;
+const TableRow = styled
+  .tr `
+  border-bottom-color:${colorDark
+  .lighten(0.6)
+  .string()};
+  border-bottom-width:1px;
+  border-bottom-style:solid;
+`;
+const TitleRow = TableRow
+  .extend `
+    color:${colorDark
+  .string()};
+    border-bottom-color:${colorDark
+  .lighten(0.3)
+  .string()};
+    border-bottom-width:2px;
+    font-weight:bold;
+`;
+const TableCol = styled.td `
+    padding:0 5px;
+`;
+const TitleCol = TableCol.extend `
+    text-transform:uppercase;
+`;
+const NoWrap = TableCol.extend `
+    white-space: nowrap;
+`;
 
 class EffectTable extends Component {
-
   render() {
-    const colorDark = 'rgba(191,106,33,1)';
-    const colorDark60 = 'rgba(191,106,33,0.6)';
-    const colorDark20 = 'rgba(191,106,33,0.2)';
-    const titleStyle = {
-      color: colorDark,
-      fontSize: '2em'
-    };
     return (
-      <Table responsive>
+      <Table>
         {this.props.rows.length > 0 && <thead>
-          <tr>
+          <TitleRow>
             {this
               .props
               .rows[0]
               .map((item, index) => (index > 0
-                ? <td
-                    style={{
-                    borderBottom: colorDark60 + ' solid 2px',
-                    ...titleStyle,
-                    'text-transform': 'uppercase'
-                  }}>
-                    <strong>{item}</strong>
-                  </td>
-                : <td
-                  style={{
-                  borderBottom: colorDark60 + ' solid 2px',
-                  ...titleStyle
-                }}>
-                  <strong>{item}</strong>
-                </td>))}
-          </tr>
+                ? <TitleCol>{item}
+                  </TitleCol>
+                : <TableCol>
+                  {item}
+                </TableCol>))}
+          </TitleRow>
         </thead>}
         <tbody>
           {this
             .props
             .rows
-            .map((item, index) => (index > 0 && <tr>
-              {item.map((it, idx) => (
-                <td
-                  style={{
-                  borderBottom: colorDark20 + ' solid 2px', 
-                  fontSize: '1.5em'
-                }}>{it}</td>
-              ))}
-            </tr>))}
+            .map((item, index) => (index > 0 && <TableRow>
+              {item.map((it, idx) => (it.length < 10
+                ? <NoWrap>
+                    {it}</NoWrap>
+                : <TableCol>
+                  {it}
+                </TableCol>))}
+            </TableRow>))}
         </tbody>
       </Table>
     );
