@@ -4,7 +4,10 @@ html {
 
 body {
   /* background-size: cover; */
-  background: url(./images/background.jpg) fixed;
+  background: url(./images/background.jpg) fixed no-repeat;
+  background-position: top center;
+  background-size: cover;
+  background-color: rgb(129, 114, 88);
   -webkit-background-size: 100% auto;
   -moz-background-size: 100% auto;
   -ms-background-size: 100% auto;

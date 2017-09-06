@@ -10,15 +10,17 @@ margin-top:50px;
 margin-bottom:50px;
 margin-left:auto;
 margin-right:auto;
-max-width: 600px;
-min-width: 400px;
+max-width: 768px;
+min-width: 300px;
 background-color: ${Color('#f3f3e8')
   .fade(0.1)
   .string()};
-padding: 50px 50px 80px 50px;
+padding: 50px 50px 50px 50px;
 box-sizing:border-box;
 @media(max-width: 768px){
-  margin: 100px auto 100px auto;
+  margin: 60vw 0 0 0;
+  padding: 20px 20px 20px 20px;
+  width: 100%;
 }
 `;
 class App extends Component {
