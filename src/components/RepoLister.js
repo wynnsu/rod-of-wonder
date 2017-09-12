@@ -1,44 +1,13 @@
-# Rod of Wonder
+import React, {Component} from 'react';
 
-Greetings, pathfinder. Here's a free Wayfinder for your battle!
-![screenshot](https://github.com/wynnsu/rod-of-wonder/blob/master/images/screenshot.png "Screenshot")
-
-## Intro
-
-Rod of wonder is a pathfinder roleplaying game companion application built with React which provides easier access to game resources.
-
-## Roadmap
-
-- [x] ~~react-uwp~~
-- [x] ~~react-bootstrap~~
-- [x] ~~react-material-ui~~
-- [x] styled-components
-- [x] css grid layout
-- [x] ~~Heroku~~
-- [x] Github pages
-- [ ] character sheet
-
-## Code Snippets
-
-### Style react-router Link component with styled-components
-
-```javascript
-const StyledLink = styled(Link)`
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 20px 40px;
-    text-decoration: none;
-    &:hover{
-        background-color:#222;
+class RepoLister extends Component {
+    constructor() {
+        super();
+        this.state = {
+            repos: []
+        };
     }
-`;
-```
-
-### Github GraphQL api calling
-
-```javascript
-componentDidMount() {
+    componentDidMount() {
         const query = `{
             user(login : "wynnsu") {
                 repositories(first : 10, isFork : false) {
@@ -77,4 +46,42 @@ componentDidMount() {
             .then(result => result.data.user.repositories.nodes)
             .then(repos => this.setState({repos}));
     }
-```
+    render() {
+        var totalSize = 0;
+        var languages = {};
+        this
+            .state
+            .repos
+            .forEach(function (repo) {
+                totalSize += repo.languages.totalSize;
+                repo
+                    .languages
+                    .edges
+                    .forEach(function (lan) {
+                        languages[repo.primaryLanguage.name] = lan.size;
+                    }, this);
+            }, this);
+        for (var k in languages) {
+            if (languages.hasOwnProperty(k)) {
+                languages[k] = Math.trunc(languages[k] * 1000 / totalSize);
+            }
+        }
+
+        return (
+            <div>
+                <h1>Total Size: {totalSize}</h1>
+                <ul>
+                    {this
+                        .state
+                        .repos
+                        .map(repo => repo.owner.login === "wynnsu" && <li key={repo.name}>
+                            {repo.name
+}
+                        </li>)}
+                </ul>
+            </div>
+        );
+    }
+};
+
+export default RepoLister;

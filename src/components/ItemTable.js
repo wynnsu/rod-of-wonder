@@ -1,13 +1,9 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import EffectTable from './EffectTable';
-import Color from 'color';
 
-const data = require('../utils/effect-tables/rod-of-wondrous.json');
-//#BF6A21
-const colorDark = Color('#BF6A21').string();
-//#ECE5B3
-const colorLight = Color('#ECE5B3').string();
+const colorDark = '#BF6A21';
+const colorLight = '#ECE5B3';
 
 const ItemWrapper = styled.div `
     display: grid;
@@ -78,26 +74,24 @@ class ItemTable extends Component {
         return (
             <div>
                 <ItemWrapper>
-                    <TitleBox>{this.props.title}</TitleBox>
+                    <TitleBox>{this.props.itemdata.title}</TitleBox>
                     <PriceWrapper>
                         <PriceTitle>PRICE</PriceTitle>
                         <PriceBox>
-                            {this.props.price}&nbsp;GP
+                            {this.props.itemdata.price}&nbsp;GP
                         </PriceBox>
                     </PriceWrapper>
                     <ItemBox>
-                        <b>AURA&nbsp;</b>{this.props.aura}</ItemBox>
+                        <b>AURA&nbsp;</b>{this.props.itemdata.aura}</ItemBox>
                     <ItemBox>
-                        <b>CL&nbsp;</b>{this.props.cl}</ItemBox>
+                        <b>CL&nbsp;</b>{this.props.itemdata.cl}</ItemBox>
                     <ItemBox>
-                        <b>WEIGHT&nbsp;</b>{this.props.weight}</ItemBox>
+                        <b>WEIGHT&nbsp;</b>{this.props.itemdata.weight}</ItemBox>
                 </ItemWrapper>
                 <Description>
-                    A rod of wonder is a strange and unpredictable device that randomly generates
-                    any number of weird effects each time it is used.Activating the rod is a
-                    standard action.Typical powers of the rod include the following.
+                    {this.props.itemdata.description}
                 </Description>
-                <EffectTable rows={data} borderColor={colorDark}/>
+                <EffectTable rows={this.props.effectdata}/>
             </div>
         );
     }

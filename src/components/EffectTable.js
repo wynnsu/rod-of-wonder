@@ -48,9 +48,9 @@ class EffectTable extends Component {
               .props
               .rows[0]
               .map((item, index) => (index > 0
-                ? <TitleCol>{item}
+                ? <TitleCol key={index}>{item}
                   </TitleCol>
-                : <TableCol>
+                : <TableCol key={index}>
                   {item}
                 </TableCol>))}
           </TitleRow>
@@ -59,11 +59,11 @@ class EffectTable extends Component {
           {this
             .props
             .rows
-            .map((item, index) => (index > 0 && <TableRow>
+            .map((item, index) => (index > 0 && <TableRow key={index}>
               {item.map((it, idx) => (it.length < 10
-                ? <NoWrap>
+                ? <NoWrap key={idx}>
                     {it}</NoWrap>
-                : <TableCol>
+                : <TableCol key={idx}>
                   {it}
                 </TableCol>))}
             </TableRow>))}
