@@ -13,9 +13,10 @@ Rod of wonder is a pathfinder roleplaying game companion application built with 
 - [x] ~~react-bootstrap~~
 - [x] ~~react-material-ui~~
 - [x] styled-components
-- [x] css grid layout
+- [x] ~~css grid layout~~
 - [x] ~~Heroku~~
 - [x] Github pages
+- [ ] color transparentize
 - [ ] character sheet
 
 ## Code Snippets
