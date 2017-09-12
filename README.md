@@ -23,7 +23,7 @@ Rod of wonder is a pathfinder roleplaying game companion application built with 
 
 ### Style react-router Link component with styled-components
 
-```javascript
+```jsx
 const StyledLink = styled(Link)`
     display: block;
     color: white;
