@@ -1,18 +1,18 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import styled from 'styled-components';
-import Color from 'color';
+import FaGithub from 'react-icons/lib/fa/github';
+import FaLinkedIn from 'react-icons/lib/fa/linkedin';
+import FaEnvelopeO from 'react-icons/lib/fa/envelope-o';
 
-const Background = styled
-    .div `
-    background-color:${Color(`#f3f3f3`)
-    .string()};
+const Wrapper = styled.header `
+    background-color:#f3f3f3;
     margin:0;
     padding:0;
     font-family: Roboto, sans-serif;
 `;
 
-const Menu = styled.ul `
+const Menu = styled.nav `
     list-style-type:none;
     margin: 0;
     padding:0;
@@ -22,46 +22,61 @@ const Menu = styled.ul `
     background-color:#333;
 `;
 
-const MenuItem = styled.li `
-    float:left;
-`;
-
 const StyledLink = styled(Link)`
+    float:left;
     display: block;
-    color: white;
+    color: #ccc;
     text-align: center;
-    padding: 20px 40px;
+    padding: 15px 30px;
     text-decoration: none;
     &:hover{
         background-color:#222;
     }
+    &:active{
+        background-color: #000;
+    }
+`;
+
+const IconLink = styled.a `
+    float:right;
+    display: block;
+    color: #888;
+    padding: 15px 30px 10px 0;
+    vertical-align:center;
+    &:hover{
+        color:#eee;
+    }
 `;
 
 const Navbar = () => (
-    <Background>
+    <Wrapper>
         <Menu>
-            <MenuItem>
-                <StyledLink to="/">
-                    Home
-                </StyledLink>
-            </MenuItem>
-            <MenuItem>
-                <StyledLink to="/about">
-                    About
-                </StyledLink>
-            </MenuItem>
-            <MenuItem>
-                <StyledLink to="/topics">
-                    Topics
-                </StyledLink>
-            </MenuItem>
-            <MenuItem>
-                <StyledLink to="/rod-of-wonder">
-                    Rod of wonder
-                </StyledLink>
-            </MenuItem>
+            <StyledLink to="/">
+                Home
+            </StyledLink>
+            <StyledLink to="/about">
+                About
+            </StyledLink>
+            <StyledLink to="/resume">
+                Resume
+            </StyledLink>
+            <StyledLink to="/topics">
+                Topics
+            </StyledLink>
+            <StyledLink to="/rod-of-wonder">
+                Rod of wonder
+            </StyledLink>
+            <IconLink href="https://github.com/wynnsu">
+                <FaGithub size='1.3em'/>
+            </IconLink>
+            <IconLink href="https://www.linkedin.com/in/wynnsu/?locale=en_US">
+                <FaLinkedIn size='1.3em'/>
+            </IconLink>
+            <IconLink href="mailto:wynnsu@gmail.com?Subject=Hello%20Yong!" target="_top">
+                <FaEnvelopeO size='1.3em'/>
+            </IconLink>
         </Menu>
-    </Background>
+    </Wrapper>
 )
 
 export default Navbar;

@@ -98,11 +98,140 @@ const items = {
     }
 };
 
+const resume = {
+    'contact': {
+        'name': 'Yong Su',
+        'addr': 'Fremont, CA 94539',
+        'phone': '(510) 509-8060',
+        'email': 'wynnsu@gmail.com',
+        'github': 'https://github.com/wynnsu'
+    },
+    'education': [
+        {
+            'school': 'Northwestern Polytechnic University',
+            'city': 'Fremont',
+            'state': 'California',
+            'country': 'United States',
+            'degree': 'M.S. Computer Science',
+            'gpa': '4.0',
+            'start': 'May 2015',
+            'end': 'April 2017',
+            'honors': '2017 Spring Capstone Competition Winner'
+        }, {
+            'school': 'Beihang University',
+            'city': 'Beijing',
+            'state': '',
+            'country': 'China',
+            'degree': 'B.Eng. Aircraft Manufacturing Engineering',
+            'gpa': '',
+            'start': 'September 2006',
+            'end': 'June 2010',
+            'honors': 'Outstanding Graduates'
+        }
+    ],
+    'project': [
+        {
+            'name': 'Rod of wonder',
+            'start': 'November 2016',
+            'end': '',
+            'school': '',
+            'content': [
+                'Designed and implemented REST services for Pathfinder roleplaying game and proto' +
+                        'typed with MySQL, Spring MVC (JAX-RS and Hibernate)',
+                'Created frontend client with Express.js',
+                'Migrating to GraphQL and React'
+            ]
+        }, {
+            'name': 'Vialo Imaging',
+            'start': 'April 2017',
+            'end': 'June 2017',
+            'school': '',
+            'content': [
+                'Improved accuracy and efficiency of image classification with ConvNet implementa' +
+                        'tion from Microsoft Cognitive Toolkit (CNTK)',
+                'Provided functional application for data labeling',
+                'Designed fluent interface for accessibility'
+            ]
+        }, {
+            'name': 'NPU Mobile',
+            'start': 'January 2017',
+            'end': 'April 2017',
+            'school': 'Northwestern Polytechnic University, Fremont, California',
+            'content': [
+                'Proposed project, set up team, attained project scope and schedule with scrum me' +
+                        'thodology',
+                'Developed Android application from scratch, worked on server, client and UI/UX d' +
+                        'esign and development',
+                'Maintained code version and work progress online, performed weekly report presen' +
+                        'tation',
+                'Proceeded project development, delivered project on schedule, and won Capstone C' +
+                        'ompetition on my own after team member’s dropout'
+            ]
+        }
+    ],
+    'experience': [
+        {
+            'title': 'Lab Instructor',
+            'start': 'January 2016',
+            'end': 'April 2016',
+            'company': 'Northwestern Polytechnic University, Fremont, California',
+            'content': ['Guided students to build their hands-on coding skills', 'Clarified complicated concepts with progressive demonstrations']
+        }, {
+            'title': 'Software Engineer',
+            'start': 'July 2010',
+            'end': 'October 2011',
+            'company': 'Chinasoft International, Beijing, China',
+            'content': ['Improved user interface and localization', 'Collaborated with team, provided feasible solution to client']
+        }
+    ],
+    'skills': [
+        {
+            'category': 'Programming',
+            'content': [
+                [
+                    'Proficient in JavaScript, Java; skilled in C#, C++, Python, HTML/CSS; Solid fundamental in object-oriented programming, algorithms, data structure and' +
+                            ' design patterns'
+                ],
+                ['Demonstrated experience with software development process'],
+                ['Familiar with Windows and UNIX environment']
+            ]
+        }, {
+            'category': 'Technology',
+            'content': [
+                [
+                    'Frontend', 'Node, Bootstrap, Angular, React, styled-component'
+                ],
+                [
+                    'Backend', 'Spring MVC, Hibernate, Express.js, MongoDB, MySQL, GraphQL'
+                ],
+                [
+                    'Utility', 'Git, Illustrator, Experience Design, Visual Studio Code, Visual Studio, Eclipse,' +
+                            ' Maven, Gradle'
+                ]
+            ]
+        }, {
+            'category': 'Traits',
+            'content': [
+                ['Passionate about new technologies and user interface design, lifetime learner, g' +
+                        'reat presenter']
+            ]
+        }, {
+            'category': 'Language',
+            'content': [
+                ['Native speaker of Mandarin Chinese']
+            ]
+        }
+    ]
+};
 
 export function EffectTableData(props) {
     return tables[props];
 }
 
-export function ItemData(props){
+export function ItemData(props) {
     return items[props];
+}
+
+export function ResumeData(props) {
+    return resume;
 }

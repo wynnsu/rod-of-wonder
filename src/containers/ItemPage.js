@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import ItemTable from '../components/ItemTable';
-import Color from 'color';
 import {EffectTableData, ItemData} from '../apis/local';
 import backgroundImage from './images/background.jpg';
 
@@ -21,9 +20,7 @@ margin-left:auto;
 margin-right:auto;
 max-width: 768px;
 min-width: 300px;
-background-color: ${Color('#f3f3e8')
-  .fade(0.1)
-  .string()};
+background-color:#f3f3e8;
 padding: 50px 50px 50px 50px;
 box-sizing:border-box;
 @media(max-width: 768px){

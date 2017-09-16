@@ -1,30 +1,23 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import Color from 'color';
+import {lighten} from '../utils/color'
 
 //#BF6A21
-const colorDark = Color('#BF6A21');
+const colorDark = '#BF6A21';
 
 const Table = styled.table `
   border-collapse: collapse;
   table-layout:auto;
   width:100%;
 `;
-const TableRow = styled
-  .tr `
-  border-bottom-color:${colorDark
-  .lighten(0.6)
-  .string()};
+const TableRow = styled.tr `
+  border-bottom-color:${lighten(colorDark, 30)};
   border-bottom-width:1px;
   border-bottom-style:solid;
 `;
-const TitleRow = TableRow
-  .extend `
-    color:${colorDark
-  .string()};
-    border-bottom-color:${colorDark
-  .lighten(0.3)
-  .string()};
+const TitleRow = TableRow.extend `
+    color:${colorDark};
+    border-bottom-color:${lighten(colorDark, 15)};
     border-bottom-width:2px;
     font-weight:bold;
 `;

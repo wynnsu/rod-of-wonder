@@ -1,25 +1,32 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import ItemPage from './containers/ItemPage';
+import ResumePage from './containers/ResumePage';
 import RepoLister from './components/RepoLister'
 import Navbar from './components/Header/Navbar';
 
-const BasicExample = () => (
+const Routes = () => (
   <Router>
     <div>
-      <Navbar />
       <Route exact path="/" component={Home}/>
       <Route path="/about" component={About}/>
+      <Route path="/resume" component={Resume}/>
       <Route path="/topics" component={Topics}/>
       <Route path="/rod-of-wonder" component={ItemSample}/>
     </div>
   </Router>
 )
 
-const ItemSample = () => (<ItemPage name='rod-of-wonder'/>)
+const ItemSample = () => (
+  <div>
+    <Navbar/>
+    <ItemPage name='rod-of-wonder'/>
+  </div>
+)
 
 const Home = () => (
   <div>
+    <Navbar/>
     <h2>Home</h2>
     <RepoLister/>
   </div>
@@ -27,12 +34,21 @@ const Home = () => (
 
 const About = () => (
   <div>
+    <Navbar/>
     <h2>About</h2>
+  </div>
+)
+
+const Resume = () => (
+  <div>
+    <Navbar/>
+    <ResumePage/>
   </div>
 )
 
 const Topics = ({match}) => (
   <div>
+    <Navbar/>
     <h2>Topics</h2>
     <ul>
       <li>
@@ -64,13 +80,14 @@ const Topics = ({match}) => (
 
 const Topic = ({match}) => (
   <div>
+    <Navbar/>
     <h3>{match.params.topicId}</h3>
   </div>
 )
 
 class App extends Component {
   render() {
-    return (<BasicExample/>);
+    return (<Routes/>);
   }
 }
 
