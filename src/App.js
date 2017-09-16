@@ -2,86 +2,70 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import ItemPage from './containers/ItemPage';
 import ResumePage from './containers/ResumePage';
-import RepoLister from './components/RepoLister'
 import Navbar from './components/Header/Navbar';
+import CharacterPage from './containers/CharacterPage';
 
 const Routes = () => (
   <Router>
     <div>
       <Route exact path="/" component={Home}/>
       <Route path="/about" component={About}/>
-      <Route path="/resume" component={Resume}/>
-      <Route path="/topics" component={Topics}/>
-      <Route path="/rod-of-wonder" component={ItemSample}/>
+      <Route path="/characters" component={Characters}/>
     </div>
   </Router>
 )
 
-const ItemSample = () => (
+const Home = () => (
   <div>
     <Navbar/>
     <ItemPage name='rod-of-wonder'/>
   </div>
 )
 
-const Home = () => (
-  <div>
-    <Navbar/>
-    <h2>Home</h2>
-    <RepoLister/>
-  </div>
-)
-
 const About = () => (
-  <div>
-    <Navbar/>
-    <h2>About</h2>
-  </div>
-)
-
-const Resume = () => (
   <div>
     <Navbar/>
     <ResumePage/>
   </div>
 )
 
-const Topics = ({match}) => (
+const Characters = ({match}) => (
   <div>
     <Navbar/>
-    <h2>Topics</h2>
+    <h2>Characters</h2>
     <ul>
       <li>
-        <Link to={`${match.url}/rendering`}>
-          Rendering with React
+        <Link to={`${match.url}/sully-lightfoot`}>
+          Sully Lightfoot
         </Link>
       </li>
       <li>
-        <Link to={`${match.url}/components`}>
-          Components
+        <Link to={`${match.url}/knot`}>
+          Knot
         </Link>
       </li>
       <li>
-        <Link to={`${match.url}/props-v-state`}>
+        <Link to={`${match.url}/gear`}>
           Props v. State
         </Link>
       </li>
     </ul>
 
-    <Route path={`${match.url}/:topicId`} component={Topic}/>
+    <Route path={`${match.url}/:characterId`} component={Character}/>
     <Route
       exact
       path={match.url}
       render={() => (
-      <h3>Please select a topic.</h3>
+      <h3>Please select a character.</h3>
     )}/>
   </div>
 )
 
-const Topic = ({match}) => (
+const Character = ({match}) => (
   <div>
-    <Navbar/>
-    <h3>{match.params.topicId}</h3>
+    {match.params.characterId === 'sully-lightfoot'
+      ? <CharacterPage/>
+      : <h3>{match.params.characterId}</h3>}
   </div>
 )
 

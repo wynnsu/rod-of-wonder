@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import ItemTable from '../components/ItemTable';
+import ItemTable from '../components/Item/ItemTable';
 import {EffectTableData, ItemData} from '../apis/local';
 import backgroundImage from './images/background.jpg';
 

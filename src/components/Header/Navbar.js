@@ -25,12 +25,13 @@ const Menu = styled.nav `
 const StyledLink = styled(Link)`
     float:left;
     display: block;
-    color: #ccc;
+    color: #aaa;
     text-align: center;
     padding: 15px 30px;
     text-decoration: none;
     &:hover{
-        background-color:#222;
+        color:#eee;
+        background-color:#111;
     }
     &:active{
         background-color: #000;
@@ -42,7 +43,6 @@ const IconLink = styled.a `
     display: block;
     color: #888;
     padding: 15px 30px 10px 0;
-    vertical-align:center;
     &:hover{
         color:#eee;
     }
@@ -57,14 +57,8 @@ const Navbar = () => (
             <StyledLink to="/about">
                 About
             </StyledLink>
-            <StyledLink to="/resume">
-                Resume
-            </StyledLink>
-            <StyledLink to="/topics">
-                Topics
-            </StyledLink>
-            <StyledLink to="/rod-of-wonder">
-                Rod of wonder
+            <StyledLink to="/characters">
+                Characters
             </StyledLink>
             <IconLink href="https://github.com/wynnsu">
                 <FaGithub size='1.3em'/>

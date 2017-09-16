@@ -8,6 +8,8 @@ const Background = styled.div `
 font-family: 'Calibri', sans-serif;
 padding-top:50px;
 padding-bottom:50px;
+background-color:#fdfdfd;
+color:#111;
 `;
 
 const Content = styled.div ` 

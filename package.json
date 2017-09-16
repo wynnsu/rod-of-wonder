@@ -3,10 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "color": "^2.0.0",
     "eslint": "^4.5.0",
     "eslint-plugin-react": "^7.3.0",
-    "material-ui": "^1.0.0-beta.7",
     "normalize.css": "^7.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
@@ -25,7 +23,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "http://wynnsu.github.io/rod-of-wonder",
+  "homepage": "https://wynnsu.github.io/rod-of-wonder",
   "devDependencies": {
     "gh-pages": "^1.0.0",
     "jest": "^21.0.2"

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import {lighten} from '../utils/color'
+import {lighten} from '../../utils/color'
 
 //#BF6A21
 const colorDark = '#BF6A21';
