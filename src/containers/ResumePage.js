@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import Section from '../components/Resume/Section';
 import Contact from '../components/Resume/Contact';
 import {ResumeData} from '../apis/local';
+import {palette} from '../utils/color'
 
 const Background = styled.div `
 font-family: 'Calibri', sans-serif;
 padding-top:50px;
 padding-bottom:50px;
-background-color:#fdfdfd;
-color:#111;
+background-color:${palette.light_primary};
+color:${palette.dark_primary};
 `;
 
 const Content = styled.div ` 

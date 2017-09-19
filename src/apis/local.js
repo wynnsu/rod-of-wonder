@@ -85,18 +85,21 @@ const tables = {
     ]
 };
 
-const items = {
-    'rod-of-wonder': {
-        'title': 'Rod of wonder',
-        'price': 12000,
-        'aura': 'moderate enchantment',
-        'cl': 10,
-        'weight': 5,
-        'description': `A rod of wonder is a strange and unpredictable device that randomly generates
+const items = [
+    {
+        id: 'rod-of-wonder',
+        data: {
+            'title': 'Rod of wonder',
+            'price': 12000,
+            'aura': 'moderate enchantment',
+            'cl': 10,
+            'weight': 5,
+            'description': `A rod of wonder is a strange and unpredictable device that randomly generates
         any number of weird effects each time it is used.Activating the rod is a
         standard action.Typical powers of the rod include the following.`
+        }
     }
-};
+];
 
 const resume = {
     'contact': {
@@ -188,10 +191,9 @@ const resume = {
         {
             'category': 'Programming',
             'content': [
-                [
-                    'Proficient in JavaScript, Java; skilled in C#, C++, Python, HTML/CSS; Solid fundamental in object-oriented programming, algorithms, data structure and' +
-                            ' design patterns'
-                ],
+                ['Proficient in JavaScript, Java; skilled in C#, C++, Python, HTML/CSS; Solid fund' +
+                        'amental in object-oriented programming, algorithms, data structure and design pa' +
+                        'tterns'],
                 ['Demonstrated experience with software development process'],
                 ['Familiar with Windows and UNIX environment']
             ]
@@ -224,12 +226,203 @@ const resume = {
     ]
 };
 
+const characters = [
+    {
+        id: 'sully',
+        data: {
+            name: 'Sullivan Lightfoot',
+            nickname: 'Sully',
+            avatar: require('./images/sully.jpg'),
+            alignment:'CG',
+            faction:'The Exchange',
+            dayjob:'',
+            player:'Kazkah',
+            class:{Filcher:1},
+            deity:'Desna',
+            homeland:'Cheliax',
+            race:'Halfling',
+            size:'Small',
+            gender:'Male',
+            age:26,
+            height:3.0,
+            weight:34,
+            hair:'Blonde',
+            eyes:'Pale green',
+            ability:{
+                str:{score:9,mod:-1,temp_adjustment:0,temp_mod:0},
+                dex:{score:19,modifer:4,temp_adjustment:0,temp_mod:0},
+                con:{score:12,modifer:1,temp_adjustment:0,temp_mod:0},
+                int:{score:12,modifer:1,temp_adjustment:0,temp_mod:0},
+                wis:{score:12,modifer:1,temp_adjustment:0,temp_mod:0},
+                cha:{score:12,modifer:1,temp_adjustment:0,temp_mod:0}
+            },
+            hp:{total:9,dr:'',wounds:'',current:9,nonlethal:0},
+            speed:{land:30,fly:0,armor:20,swim:0,climb:0,burrow:0,temp:0},
+            initiative:{total:4,dex:4,misc:0},
+            ac:{total:15,armor:0,shield:0,dex_mod:4,size_mod:1,natural_armor:0,deflection_mod:0,misc_mod:0,touch:15,flatfooted:11,mod:0},
+            saving:{
+                fortitude:{total:1,base:0,ability_mod:1,magic_mod:0,misc_mod:0,temp_mod:0},
+                reflex:{total:6,base:2,ability_mod:4,magic_mod:0,misc_mod:0,temp_mod:0},
+                will:{total:1,base:0,ability_mod:1,magic_mod:0,misc_mod:0,temp_mod:0}
+            },
+            bab:0,
+            'spell-resistance':0,
+            cmb:{total:-2,bab:0,str_mod:-1,size_mod:-1,mod:0},
+            cmd:{total:12,bab:0,str_mod:-1,dex_mod:4,size_mod:-1,mod:0},
+            skills:[                
+                {
+                    name:'Acrobatics',
+                    total:8,
+                    ability_mod:4,
+                    ranks:1,
+                    misc_mod:0,
+                    class_skill:true
+                },
+                {
+                    name:'Perception',
+                    total:7,
+                    ability_mod:1,
+                    ranks:1,
+                    misc_mod:2,
+                    class_skill:true
+                },
+                {
+                    name:'Stealth',
+                    total:12,
+                    ability_mod:4,
+                    ranks:1,
+                    misc_mod:4,
+                    class_skill:true
+                },
+                {
+                    name:'Disable device',
+                    total:9,
+                    ability_mod:4,
+                    ranks:1,
+                    misc_mod:1,
+                    class_skill:true
+                },
+                {
+                    name:'Escape artist',
+                    total:8,
+                    ability_mod:4,
+                    ranks:1,
+                    misc_mod:0,
+                    class_skill:true
+                },
+                {
+                    name:'Appraise',
+                    total:5,
+                    ability_mod:1,
+                    ranks:1,
+                    misc_mod:0,
+                    class_skill:true
+                },
+                {
+                    name:'Bluff',
+                    total:5,
+                    ability_mod:1,
+                    ranks:1,
+                    misc_mod:0,
+                    class_skill:true
+                },
+                {
+                    name:'Knowledge(Local)',
+                    total:5,
+                    ability_mod:1,
+                    ranks:1,
+                    misc_mod:0,
+                    class_skill:true
+                },
+                {
+                    name:'Sleight of hand',
+                    total:9,
+                    ability_mod:4,
+                    ranks:1,
+                    misc_mod:1,
+                    class_skill:true
+                },
+                {
+                    name:'Conditional Modifiers',
+                    content:''},
+                {
+                    name:'Languages',
+                    content:['Common','Halfling']
+                }
+            ],
+            weapon:[
+                {
+                    name:'Dagger',
+                    attack_bonus:4,
+                    critical:'19-20/x2',
+                    type:'P or S',
+                    range:10,
+                    ammunition:'',
+                    damage:'1d3'
+                },
+                {
+                    name:'Sling',
+                    attack_bonus:4,
+                    critical:'x2',
+                    type:'B',
+                    range:50,
+                    ammunition:7,
+                    damage:'1d3'
+                }
+            ],
+            ac_items:[],
+            gear:[],
+            feats:[],
+            traits:[],
+            load:{light:23,medium:45,heavy:67,over_head:0,off_ground:0,drag:0},
+            gold:2.9,
+            sa:[],
+            xp:1,
+            fame:2,
+            prestige:2,
+        }
+    },
+    {
+        id: 'baal',
+        data: {
+            name: 'Baal',
+            nickname: 'Baal',
+            avatar: require('./images/baal.jpg'),
+            full:require('./images/baal_full.jpg')
+        }
+    },
+    {
+        id: 'gair',
+        data: {
+            name: 'Gair Prop',
+            nickname: 'Gair',
+            avatar: require('./images/gair.jpg'),
+            full:require('./images/gair_full.jpg')
+        }
+    }
+];
+
+export function CharacterData(props) {
+    if (props === 'nav') {
+        return characters;
+    }
+    for (let i = 0; i < characters.length; i++) {
+        if (characters[i].id.toLowerCase() === props) {
+            return characters[i].data;
+        }
+    }
+}
+
 export function EffectTableData(props) {
     return tables[props];
 }
 
 export function ItemData(props) {
-    return items[props];
+    for (let i = 0; i < items.length; i++) {
+        if (items[i].id.toLowerCase() === props) {
+            return items[i].data;
+        }
+    }
 }
 
 export function ResumeData(props) {

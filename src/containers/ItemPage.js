@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import ItemTable from '../components/Item/ItemTable';
 import {EffectTableData, ItemData} from '../apis/local';
 import backgroundImage from './images/background.jpg';
+import {palette} from '../utils/color';
 
 const Background = styled.div `
   background: url(${backgroundImage}) fixed no-repeat;   
@@ -20,7 +21,7 @@ margin-left:auto;
 margin-right:auto;
 max-width: 768px;
 min-width: 300px;
-background-color:#f3f3e8;
+background-color:${palette.background};
 padding: 50px 50px 50px 50px;
 box-sizing:border-box;
 @media(max-width: 768px){

@@ -7,20 +7,48 @@ Greetings, pathfinder. Here's a free Wayfinder for your battle!
 
 Rod of wonder is a pathfinder roleplaying game companion application built with React which provides easier access to game resources.
 
+## Components
+
+* [Effect Table](src/components/item/EffectTable.js)
+
+    Effect table with Pathfinder rule book looks.
+
+* [Item Table](src/components/item/ItemTable.js)
+
+    Item description with Pathfinder rule book looks.
+
 ## Roadmap
 
-- [x] ~~react-uwp~~
-- [x] ~~react-bootstrap~~
-- [x] ~~react-material-ui~~
-- [x] styled-components
-- [x] ~~css grid layout~~
-- [x] ~~Heroku~~
-- [x] Github pages
-- [x] color transparentize
-- [x] resume in html
-- [ ] character sheet
+* [x] ~~react-uwp~~
+* [x] ~~react-bootstrap~~
+* [x] ~~react-material-ui~~
+* [x] styled-components
+* [x] ~~css grid layout~~
+* [x] ~~Heroku~~
+* [x] Github pages
+* [x] color transparentize
+* [x] resume in html
+* [ ] api
+  * [x] local
+  * [ ] graphql
+* [ ] character sheet
+  * [x] data
+  * [ ] layout
 
 ## Code Snippets
+
+### Deploy to github pages with react router
+
+```jsx
+const baseUrl=process.env.PUBLIC_URL;
+const Routes = () => (
+  <Router>
+    <div>
+      <Route exact path={baseUrl+"/"} component={Home}/>
+    </div>
+  </Router>
+)
+```
 
 ### Style react-router Link component with styled-components
 

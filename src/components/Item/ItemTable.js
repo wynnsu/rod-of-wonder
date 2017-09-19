@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import EffectTable from './EffectTable';
-
-const colorDark = '#BF6A21';
-const colorLight = '#ECE5B3';
+import {palette} from '../../utils/color';
 
 const ItemWrapper = styled.div `
     display: grid;
@@ -11,16 +9,16 @@ const ItemWrapper = styled.div `
     grid-template-columns:3fr 1fr 1.5fr;
     grid-row-gap:2px;
     grid-column-gap:2px;
-    background-color:${colorDark};
-    border: 2px solid ${colorDark};
+    background-color:${palette.dark};
+    border: 2px solid ${palette.dark};
     margin-bottom:2px;
     `;
 const ItemBox = styled.div `
-    background-color:${colorLight};
+    background-color:${palette.light};
     display: flex;
     align-items: center;
     justify-content: start;
-    color: ${colorDark};
+    color: ${palette.dark};
     font-size:medium;
     padding-left:5%;
     @media (max-width: 768px){
@@ -30,7 +28,7 @@ const ItemBox = styled.div `
 const PriceWrapper = styled.div `
     display:subgrid;
     grid-template-rows:1fr 1.5fr;
-    background-color:white;
+    background-color:${palette.light_primary};
     grid-row:1/span 2;
     font-size:large;
     @media (max-width: 768px){
@@ -58,9 +56,9 @@ const TitleBox = ItemBox.extend `
     grid-column: 1/span 2;
     grid-row:1/span 2;
     justify-content:start;
-    color:${colorLight};
+    color:${palette.light};
     font-size: xx-large;
-    background-color:${colorDark};
+    background-color:${palette.dark};
     font-weight:bold;
     @media (max-width: 768px){
         font-size:x-large;
@@ -68,6 +66,7 @@ const TitleBox = ItemBox.extend `
 `;
 const Description = styled.p `
     text-align:justify;
+    color:${palette.dark_primary};
 `;
 class ItemTable extends Component {
     render() {

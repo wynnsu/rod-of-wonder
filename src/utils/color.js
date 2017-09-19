@@ -17,4 +17,18 @@ const lighten = (color, amount) => {
     return color = `#${addLight(color.substring(0, 2), amount)}${addLight(color.substring(2, 4), amount)}${addLight(color.substring(4, 6), amount)}`;
 }
 
-export {addLight, lighten};
+const palette = {
+    dark_primary: '#2c3e50',
+    dark_secondary: '#34495e',
+    light_primary: '#ecf0f1',
+    light_secondary: '#bdc3c7',
+    grey_darker: '#7f8c8d',
+    grey_lighter: '#95a5a6',
+    primary: '#c0392b',
+    accent: '#03a9f4',
+    dark: '#BF6A21',
+    light: '#ECE5B3',
+    background: '#f3f3e8'
+}
+
+export {addLight, lighten, palette};
