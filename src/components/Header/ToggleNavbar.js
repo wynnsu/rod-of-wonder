@@ -4,57 +4,43 @@ import styled from 'styled-components';
 import FaGithub from 'react-icons/lib/fa/github';
 import FaLinkedIn from 'react-icons/lib/fa/linkedin';
 import FaEnvelopeO from 'react-icons/lib/fa/envelope-o';
+import FaBars from 'react-icons/lib/fa/bars';
 import FaUser from 'react-icons/lib/fa/user';
 import {palette} from '../../utils/color';
 
-const Wrapper = styled.footer `
-    background-color:${palette.dark_secondary};
-    margin:auto;
-    padding:0;
-    bottom:0px;
-    font-family: Roboto, sans-serif;
-`;
 const Menu = styled.ul `
-    list-style-type:none;
-    display:block;
-    overflow:hidden;
-    text-align:center;
+    background-color:${palette.dark_primary};
     padding:0;
     margin:0;
 `;
 
 const MenuItem = styled.li `
-    display:inline;
+    display:block;
     padding:0;
     margin:0;
-    width:25%;
-    &:hover {
-        & *{
-            color:${palette.dark_secondary};
-            background-color:${palette.light_secondary};
-        }
+    &:hover{
+        color:${palette.light_primary};
+        background-color:${palette.dark_secondary};
     }
     & *{
-        font-size:25px;
         text-decoration:none;
-        padding:10px 15px;
         color:${palette.light_secondary};
-    }
-    @media(min-width:768px){
-        &*{
-            font-size:2em;
-        }
     }
 `;
 
-class Footer extends Component {
+class ToggleNavbar extends Component {
     render() {
         return (
-            <Wrapper>
+            <div>
                 <Menu>
                     <MenuItem>
-                        <Link to={`${process.env.PUBLIC_URL}/about`}>
-                            <FaUser/>
+                        <Link to={`${process.env.PUBLIC_URL}/`}>
+                            Home
+                        </Link>
+                    </MenuItem>
+                    <MenuItem>
+                        <Link to={`${process.env.PUBLIC_URL}/characters`}>
+                            Characters
                         </Link>
                     </MenuItem>
                     <MenuItem>
@@ -72,10 +58,15 @@ class Footer extends Component {
                             <FaEnvelopeO/>
                         </a>
                     </MenuItem>
+                    <MenuItem>
+                        <Link to={`${process.env.PUBLIC_URL}/about`}>
+                            <FaUser/>
+                        </Link>
+                    </MenuItem>
                 </Menu>
-            </Wrapper>
+            </div>
         );
     }
 }
 
-export default Footer;
+export default ToggleNavbar;

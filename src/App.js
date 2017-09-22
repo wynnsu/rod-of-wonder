@@ -4,6 +4,7 @@ import ItemPage from './containers/ItemPage';
 import ResumePage from './containers/ResumePage';
 import Navbar from './components/Header/Navbar';
 import CharacterPage from './containers/CharacterPage';
+import Footer from './components/Footer/Footer';
 
 const baseUrl=process.env.PUBLIC_URL;
 
@@ -18,24 +19,27 @@ const Routes = () => (
 )
 
 const Home = () => (
-  <div>
+  <section>
     <Navbar/>
     <ItemPage name='rod-of-wonder'/>
-  </div>
+    <Footer />
+  </section>
 )
 
 const About = () => (
-  <div>
+  <section>
     <Navbar/>
     <ResumePage/>
-  </div>
+    <Footer />
+  </section>
 )
 
 const Characters = ({match}) => (
-  <div>
+  <section>
     <Navbar/>
     <CharacterPage match={match}/>
-  </div>
+    <Footer />
+  </section>
 )
 
 

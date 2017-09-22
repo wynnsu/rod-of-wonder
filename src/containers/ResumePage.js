@@ -5,26 +5,28 @@ import Contact from '../components/Resume/Contact';
 import {ResumeData} from '../apis/local';
 import {palette} from '../utils/color'
 
-const Background = styled.div `
-font-family: 'Calibri', sans-serif;
-padding-top:50px;
-padding-bottom:50px;
-background-color:${palette.light_primary};
-color:${palette.dark_primary};
+const Background = styled.section `
+    font-family: 'Calibri', sans-serif;
+    background-color:${palette.light_primary};
+    color:${palette.dark_primary};
+    padding:0;
+    @media(min-width:768px){
+        padding-top:50px;
+        padding-bottom:50px;
+    }
 `;
 
 const Content = styled.div ` 
-margin-left:auto;
-margin-right:auto;
-max-width: 768px;
-min-width: 300px;
-padding: 50px 50px 50px 50px;
-box-sizing:border-box;
-@media(max-width: 768px){
-margin: 60vw 0 0 0;
-padding: 20px 20px 20px 20px;
-width: 100%;
-}
+    margin-left:auto;
+    margin-right:auto;
+    max-width: 768px;
+    min-width: 300px;
+    padding:0;
+    box-sizing:border-box;
+    @media(min-width: 768px){
+        padding: 20px;
+        width: 100%;
+    }
 `;
 
 const data = ResumeData();

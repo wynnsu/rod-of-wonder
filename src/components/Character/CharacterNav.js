@@ -19,7 +19,6 @@ const Menu = styled.nav `
 `;
 
 const StyledLink = styled(Link)`
-    float:left;
     display: block;
     color: ${palette.dark_primary};
     text-align: center;
@@ -27,7 +26,6 @@ const StyledLink = styled(Link)`
     text-decoration: none;
     &:hover{
         transform:scale(1.1);
-        background-color:${palette.light_primary};
     }
 `;
 

@@ -11,7 +11,7 @@ const Character = ({match}) => (<CharacterSheet data={CharacterData(match.params
 class CharacterPage extends Component {
     render() {
         return (
-            <div>
+            <section>
                 {(!this.props.match.isExact)&&<Link to={`${this.props.match.url}`} >
                     <FaAngleLeft size='3em' color={palette.dark_primary}/>
                 </Link>}
@@ -24,7 +24,7 @@ class CharacterPage extends Component {
                     </div>
                 )}/>
                 <Route path={`${this.props.match.url}/:characterId`} component={Character}/>
-            </div>
+            </section>
         );
     }
 }
