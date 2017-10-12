@@ -31,7 +31,7 @@ const Content = styled.div `
 
 const data = ResumeData();
 
-class ResumePage extends Component {
+export default class extends Component {
     render() {
         return (
             <Background>
@@ -46,5 +46,3 @@ class ResumePage extends Component {
         );
     }
 }
-
-export default ResumePage;

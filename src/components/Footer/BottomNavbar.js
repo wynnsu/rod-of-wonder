@@ -9,9 +9,6 @@ import {palette} from '../../utils/color';
 
 const Wrapper = styled.footer `
     background-color:${palette.dark_secondary};
-    margin:auto;
-    padding:0;
-    bottom:0px;
     font-family: Roboto, sans-serif;
 `;
 const Menu = styled.ul `
@@ -47,7 +44,7 @@ const MenuItem = styled.li `
     }
 `;
 
-class Footer extends Component {
+export default class extends Component {
     render() {
         return (
             <Wrapper>
@@ -77,5 +74,3 @@ class Footer extends Component {
         );
     }
 }
-
-export default Footer;

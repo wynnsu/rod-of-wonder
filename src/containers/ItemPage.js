@@ -33,7 +33,7 @@ width: 100%;
 }
 `;
 
-class ItemPage extends Component {
+export default class extends Component {
   render() {
     return (
       <Background>
@@ -46,5 +46,3 @@ class ItemPage extends Component {
     );
   }
 }
-
-export default ItemPage;
