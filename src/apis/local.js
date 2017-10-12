@@ -387,8 +387,7 @@ const characters = [
         data: {
             name: 'Baal',
             nickname: 'Baal',
-            avatar: require('./images/baal.jpg'),
-            full:require('./images/baal_full.jpg')
+            avatar: require('./images/baal.jpg')
         }
     },
     {
@@ -396,8 +395,7 @@ const characters = [
         data: {
             name: 'Gair Prop',
             nickname: 'Gair',
-            avatar: require('./images/gair.jpg'),
-            full:require('./images/gair_full.jpg')
+            avatar: require('./images/gair.jpg')
         }
     }
 ];

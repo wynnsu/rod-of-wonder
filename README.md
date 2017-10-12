@@ -34,6 +34,7 @@ Rod of wonder is a pathfinder roleplaying game companion application built with 
 * [ ] character sheet
   * [x] data
   * [ ] layout
+* [x] Flexbox layout
 
 ## Code Snippets
 
