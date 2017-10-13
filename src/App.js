@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router,Route} from 'react-router-dom';
-import ItemPage from './containers/ItemPage';
-import ResumePage from './containers/ResumePage';
-import CharacterPage from './containers/CharacterPage';
-import Wrapper from './components/Wrapper';
+import ItemPage from './pages/ItemPage';
+import ResumePage from './pages/ResumePage';
+import CharacterPage from './pages/CharacterPage';
+import Wrapper from './components/layout/Wrapper';
 
 const baseUrl = process.env.PUBLIC_URL;
 

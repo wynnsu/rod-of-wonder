@@ -14,11 +14,11 @@ const Wrapper = styled.div `
 const Content = styled.div ` 
     display:flex;
     justify-content:center;
-    padding: 50px;
-    @media(max-width: 768px){
-        margin: 60vw 0 0 0;
-        padding: 20px 20px 20px 20px;
-        width: 100%;
+    align-items:center;
+    flex-direction:column;
+    @media(min-width: 768px){
+        flex-direction:row;
+        padding: 50px;
     }
 `;
 

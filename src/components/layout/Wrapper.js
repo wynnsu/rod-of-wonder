@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Navbar from './Header/Navbar';
-import BottomNavbar from './Footer/BottomNavbar';
+import Navbar from './Navbar';
+import Footer from './Footer';
 import styled from 'styled-components';
 
 const Body = styled.div `
@@ -18,7 +18,7 @@ const Main = styled.main `
     flex:1;
 `;
 
-const Footer = styled(BottomNavbar)`
+const StyledFooter = styled(Footer)`
     flex:1;
     height:150px;
 `;
@@ -31,7 +31,7 @@ export default class extends Component {
                 <Main>
                     {this.props.children}
                 </Main>
-                <Footer/>
+                <StyledFooter/>
             </Body>
         )
     }

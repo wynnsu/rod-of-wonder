@@ -19,9 +19,7 @@ class CharacterPage extends Component {
                     exact
                     path={this.props.match.url}
                     render={() => (
-                    <div>
                         <CharacterNav baseurl={this.props.match.url} data={CharacterData('nav')}/>
-                    </div>
                 )}/>
                 <Route path={`${this.props.match.url}/:characterId`} component={Character}/>
             </section>
