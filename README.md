@@ -8,6 +8,87 @@
 
 Rod of wonder is a Character Sheet editor for Pathfinder roleplaying game based on [facebook/draft-js](https://github.com/facebook/draft-js).
 
+## Project Structure
+
+### src/comopnents
+
+Presentational components, display only
+
+```js
+
+export default class extends Component {
+    render() {
+        return (
+            <div>
+                <ItemWrapper>
+                    <TitleBox>{this.props.itemdata.title}</TitleBox>
+                    <PriceWrapper>
+                        <PriceTitle>PRICE</PriceTitle>
+                        <PriceBox>
+                            {this.props.itemdata.price}&nbsp;GP
+                        </PriceBox>
+                    </PriceWrapper>
+                    <ItemBox>
+                        <b>AURA&nbsp;</b>{this.props.itemdata.aura}</ItemBox>
+                    <ItemBox>
+                        <b>CL&nbsp;</b>{this.props.itemdata.cl}</ItemBox>
+                    <ItemBox>
+                        <b>WEIGHT&nbsp;</b>{this.props.itemdata.weight}</ItemBox>
+                </ItemWrapper>
+                <Description>
+                    {this.props.itemdata.description}
+                </Description>
+                <EffectTable rows={this.props.effectdata}/>
+            </div>
+        );
+    }
+}
+```
+
+### src/pages
+
+Container components, handle logic and data
+
+Example:
+
+```js
+export default class extends Component {
+  render() {
+    return (
+      <Background>
+        <Content>
+          <ItemTable
+            itemdata={ItemData(this.props.name)}
+            effectdata={EffectTableData(this.props.name)}/>
+        </Content>
+      </Background>
+    );
+  }
+}
+```
+
+### src/apis
+
+Static mock data
+
+```js
+const items = [
+    {
+        id: 'rod-of-wonder',
+        data: {
+            'title': 'Rod of wonder',
+            'price': 12000,
+            'aura': 'moderate enchantment',
+            'cl': 10,
+            'weight': 5,
+            'description': `A rod of wonder is a strange and unpredictable device that randomly generates
+        any number of weird effects each time it is used.Activating the rod is a
+        standard action.Typical powers of the rod include the following.`
+        }
+    }
+];
+```
+
 ## Components
 
 * [Effect Table](src/components/item/EffectTable.js)
@@ -17,96 +98,3 @@ Rod of wonder is a Character Sheet editor for Pathfinder roleplaying game based 
 * [Item Table](src/components/item/ItemTable.js)
 
     Item description with Pathfinder rule book looks.
-
-## Roadmap
-
-* [x] ~~react-uwp~~
-* [x] ~~react-bootstrap~~
-* [x] ~~react-material-ui~~
-* [x] styled-components
-* [x] ~~css grid layout~~
-* [x] ~~Heroku~~
-* [x] Github pages
-* [x] color transparentize
-* [x] resume in html
-* [ ] api
-  * [x] local
-  * [ ] graphql
-* [ ] character sheet
-  * [x] data
-  * [ ] layout
-* [x] Flexbox layout
-
-## Code Snippets
-
-### Deploy to github pages with react router
-
-```jsx
-const baseUrl=process.env.PUBLIC_URL;
-const Routes = () => (
-  <Router>
-    <div>
-      <Route exact path={baseUrl+"/"} component={Home}/>
-    </div>
-  </Router>
-)
-```
-
-### Style react-router Link component with styled-components
-
-```jsx
-const StyledLink = styled(Link)`
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 20px 40px;
-    text-decoration: none;
-    &:hover{
-        background-color:#222;
-    }
-`;
-```
-
-### Github GraphQL api calling
-
-```javascript
-componentDidMount() {
-        const query = `{
-            user(login : "USERNAME") {
-                repositories(first : 10, isFork : false) {
-                    nodes {
-                        name owner {
-                            login
-                        }
-                        primaryLanguage {
-                            name
-                        }
-                        languages(first : 10) {
-                            totalSize
-                            edges {
-                                size node {
-                                    name
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }`;
-
-        var url = "https://api.github.com/graphql";
-        var options = {
-            method: "POST",
-            body: JSON.stringify({query: query}),
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "Authorization": "TOKEN"
-            }
-        };
-        fetch(url, options)
-            .then(response => response.json())
-            .then(result => result.data.user.repositories.nodes)
-            .then(repos => this.setState({repos}));
-    }
-```

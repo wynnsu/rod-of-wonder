@@ -68,7 +68,7 @@ const Description = styled.p `
     text-align:justify;
     color:${palette.dark_primary};
 `;
-class ItemTable extends Component {
+export default class extends Component {
     render() {
         return (
             <div>
@@ -95,5 +95,3 @@ class ItemTable extends Component {
         );
     }
 }
-
-export default ItemTable;
