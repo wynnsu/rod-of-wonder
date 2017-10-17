@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import {palette} from '../../utils/color';
+import CharacterSection from './CharacterSection';
 
 const Wrapper = styled.div `
     font-family: 'Calibri', sans-serif;
@@ -50,11 +51,26 @@ const Hr = styled.hr `
 class CharacterSheet extends Component {
     render() {
         const data = this.props.data;
+        const items = [
+            'alignment',
+            'gender',
+            'race',
+            'deity',
+            'faction',
+            'age',
+            'height',
+            'weight'
+        ];
+        const summary = items.map((item) => {
+            console.log(item,data[item]);
+            return {name: item, data: data[item]};
+        });
         return (
             <Wrapper wallpaper={data.full}>
                 <Content>
                     <Avatar src={data.avatar} alt={data.name}/> {data.nickname === 'Sully'
                         ? <TitleWrapper>
+                                <CharacterSection title={data.name} items={summary}/>
                                 <Name>{data.name}</Name>
                                 <Hr/>
                                 <span>

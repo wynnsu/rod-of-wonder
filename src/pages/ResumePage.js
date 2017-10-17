@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
-import Section from '../components/Resume/Section';
-import Contact from '../components/Resume/Contact';
+import Section from '../components/resume/Section';
+import Contact from '../components/resume/Contact';
 import {ResumeData} from '../apis/local';
 import {palette} from '../utils/color'
 

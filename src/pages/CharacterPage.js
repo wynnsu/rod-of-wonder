@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Route, Link} from 'react-router-dom';
 import {CharacterData} from '../apis/local';
-import CharacterSheet from '../components/Character/CharacterSheet';
-import CharacterNav from '../components/Character/CharacterNav';
+import CharacterSheet from '../components/character/CharacterSheet';
+import CharacterNav from '../components/character/CharacterNav';
 import FaAngleLeft from 'react-icons/lib/fa/angle-left';
 import {palette} from '../utils/color';
 
