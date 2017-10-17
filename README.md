@@ -1,12 +1,12 @@
 # Rod of Wonder
 
-> Greetings, pathfinder. Here's a free Wayfinder for your battle!
+*Greetings, pathfinder. Here's a free Wayfinder for your battle!*
 
 ![screenshot](https://github.com/wynnsu/rod-of-wonder/blob/master/images/screenshot.png "Screenshot")
 
 ## Intro
 
-Rod of wonder is a pathfinder roleplaying game companion application built with React which provides easier access to game resources.
+Rod of wonder is a Character Sheet editor for Pathfinder roleplaying game based on [facebook/draft-js](https://github.com/facebook/draft-js).
 
 ## Components
 
