@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import {palette} from '../../utils/color';
 
 const LeftSpan=styled.span`
     border-radius:1em 0 0 1em;

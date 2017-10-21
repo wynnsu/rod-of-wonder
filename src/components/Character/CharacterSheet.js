@@ -1,9 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import {palette} from '../../utils/color';
+import { palette } from '../../utils/color';
 import CharacterSection from './CharacterSection';
+import { Editor, EditorState } from 'draft-js';
 
-const Wrapper = styled.div `
+const Wrapper = styled.div`
     font-family: 'Calibri', sans-serif;
     padding-top:50px;
     padding-bottom:50px;
@@ -12,7 +13,7 @@ const Wrapper = styled.div `
     flex:1;
 `;
 
-const Content = styled.div ` 
+const Content = styled.div` 
     display:flex;
     justify-content:center;
     align-items:center;
@@ -23,25 +24,25 @@ const Content = styled.div `
     }
 `;
 
-const Avatar = styled.img `
+const Avatar = styled.img`
     border-radius:50%;
     width:256px;
     margin:48px;
 `;
 
-const TitleWrapper = styled.div `
+const TitleWrapper = styled.div`
     display:flex;
     flex-direction:column;
     justify-content:center;
 `
 
-const Name = styled.span `
+const Name = styled.span`
     font-size:36px;
     font-weight:bold;
     color:${palette.primary};
 `;
 
-const Hr = styled.hr `
+const Hr = styled.hr`
     border:none;
     height:1px;
     color:black;
@@ -49,6 +50,11 @@ const Hr = styled.hr `
 `;
 
 class CharacterSheet extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { editorState: EditorState.createEmpty() };
+        this.onChange = (editorState) => this.setState({ editorState });
+    }
     render() {
         const data = this.props.data;
         const items = [
@@ -62,42 +68,45 @@ class CharacterSheet extends Component {
             'weight'
         ];
         const summary = items.map((item) => {
-            console.log(item,data[item]);
-            return {name: item, data: data[item]};
+            console.log(item, data[item]);
+            return { name: item, data: data[item] };
         });
         return (
             <Wrapper wallpaper={data.full}>
                 <Content>
-                    <Avatar src={data.avatar} alt={data.name}/> {data.nickname === 'Sully'
+                    <Avatar src={data.avatar} alt={data.name} /> {data.nickname === 'Sully'
                         ? <TitleWrapper>
-                                <CharacterSection title={data.name} items={summary}/>
-                                <Name>{data.name}</Name>
-                                <Hr/>
-                                <span>
-                                    <b>Alignment&nbsp;</b>{data.alignment}&nbsp;&nbsp;<b>Gender&nbsp;</b>{data.gender}&nbsp;&nbsp;<b>Race&nbsp;</b>{data.race}
-                                </span>
-                                <span>
-                                    <b>Class</b>&nbsp;{Object
-                                        .keys(data.class)
-                                        .map(k => k + ' ' + data.class[k].toString())}</span>
-                                <span>
-                                    <b>Deity</b>&nbsp;{data.deity}&nbsp;&nbsp;<b>Faction</b>&nbsp;{data.faction}&nbsp;&nbsp;<b>Day job&nbsp;</b>{data.dayjob || 'none'}</span>
-                                <span>
-                                    <b>Age</b>&nbsp;{data.age}&nbsp;&nbsp;<b>Height</b>&nbsp;{data.height}&nbsp;&nbsp;<b>Weight</b>&nbsp;{data.weight}</span>
-                                <span>
-                                    <b>Init</b>&nbsp;+{data.initiative.total}&nbsp;&nbsp;<b>Speed</b>&nbsp;{data.speed.land}&nbsp;&nbsp;<b>Sense</b>&nbsp;+{data.skills[1].total}</span>
-                                <span>
-                                    <b>Languages</b>&nbsp;{data
-                                        .skills[10]
-                                        .content
-                                        .map(lang => lang.toString() + ' ')}</span>
-                            </TitleWrapper>
+                            <CharacterSection title={data.name} items={summary} />
+                            <Name>{data.name}</Name>
+                            <Hr />
+                            <span>
+                                <b>Alignment&nbsp;</b>{data.alignment}&nbsp;&nbsp;<b>Gender&nbsp;</b>{data.gender}&nbsp;&nbsp;<b>Race&nbsp;</b>{data.race}
+                            </span>
+                            <span>
+                                <b>Class</b>&nbsp;{Object
+                                    .keys(data.class)
+                                    .map(k => k + ' ' + data.class[k].toString())}</span>
+                            <span>
+                                <b>Deity</b>&nbsp;{data.deity}&nbsp;&nbsp;<b>Faction</b>&nbsp;{data.faction}&nbsp;&nbsp;<b>Day job&nbsp;</b>{data.dayjob || 'none'}</span>
+                            <span>
+                                <b>Age</b>&nbsp;{data.age}&nbsp;&nbsp;<b>Height</b>&nbsp;{data.height}&nbsp;&nbsp;<b>Weight</b>&nbsp;{data.weight}</span>
+                            <span>
+                                <b>Init</b>&nbsp;+{data.initiative.total}&nbsp;&nbsp;<b>Speed</b>&nbsp;{data.speed.land}&nbsp;&nbsp;<b>Sense</b>&nbsp;+{data.skills[1].total}</span>
+                            <span>
+                                <b>Languages</b>&nbsp;{data
+                                    .skills[10]
+                                    .content
+                                    .map(lang => lang.toString() + ' ')}</span>
+                        </TitleWrapper>
                         : <TitleWrapper>
                             <Name>{data.name}</Name>
-                            <Hr/>
-                            <span>To be continue</span>
+                            <Hr />
+                            <Editor
+                                editorState={this.state.editorState}
+                                onChange={this.onChange}
+                            />
                         </TitleWrapper>
-}
+                    }
                 </Content>
             </Wrapper>
         )
