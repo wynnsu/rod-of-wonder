@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { palette } from '../../utils/color';
 import CharacterSection from './CharacterSection';
-import { Editor, EditorState } from 'draft-js';
+import CharacterEditor from './CharacterEditor';
 
 const Wrapper = styled.div`
     font-family: 'Calibri', sans-serif;
@@ -50,11 +50,6 @@ const Hr = styled.hr`
 `;
 
 class CharacterSheet extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { editorState: EditorState.createEmpty() };
-        this.onChange = (editorState) => this.setState({ editorState });
-    }
     render() {
         const data = this.props.data;
         const items = [
@@ -101,10 +96,7 @@ class CharacterSheet extends Component {
                         : <TitleWrapper>
                             <Name>{data.name}</Name>
                             <Hr />
-                            <Editor
-                                editorState={this.state.editorState}
-                                onChange={this.onChange}
-                            />
+                            <CharacterEditor />
                         </TitleWrapper>
                     }
                 </Content>
