@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "draft-js": "^0.10.3",
+    "draft-js-plugins-editor": "^2.0.0-rc8",
     "eslint": "^4.5.0",
     "eslint-plugin-react": "^7.3.0",
     "flux": "^3.1.3",

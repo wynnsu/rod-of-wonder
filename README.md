@@ -8,6 +8,24 @@
 
 Rod of wonder is a Character Sheet editor for Pathfinder roleplaying game based on [facebook/draft-js](https://github.com/facebook/draft-js).
 
+### Inline toolbar
+
+Inline-toolbar for Edit and Peek Link
+
+#### Edit
+
+* Change item
+* Add brief
+* Remove item
+
+#### Peek Link
+
+Peek full description
+
+![inline-toolbar](https://github.com/wynnsu/rod-of-wonder/blob/master/images/design_inlinetoobar.png "Inline-toobar")
+
+![peek](https://github.com/wynnsu/rod-of-wonder/blob/master/images/design_peek.png "Peek")
+
 ## Project Structure
 
 ### src/comopnents
